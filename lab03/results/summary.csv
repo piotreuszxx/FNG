@@ -1,0 +1,4 @@
+Algorithm,Best,Average,Std,Worst,AvgTime(s),MinTime(s),MaxTime(s),Image
+SA,11350.26,13104.05,1211.60,14884.30,0.05,0.04,0.08,D:\PBS\FNG\lab03\results\SA_best.png
+PSO,23020.64,23287.39,216.56,23649.80,1.16,1.08,1.25,D:\PBS\FNG\lab03\results\PSO_best.png
+GA,9289.83,10158.72,479.98,10749.85,3.02,2.73,3.27,D:\PBS\FNG\lab03\results\GA_best.png
