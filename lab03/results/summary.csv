@@ -1,4 +1,4 @@
-Algorithm,Best,Average,Std,Worst,AvgTime(s),MinTime(s),MaxTime(s),Image
-SA,11350.26,13104.05,1211.60,14884.30,0.05,0.04,0.08,D:\PBS\FNG\lab03\results\SA_best.png
-PSO,23020.64,23287.39,216.56,23649.80,1.16,1.08,1.25,D:\PBS\FNG\lab03\results\PSO_best.png
-GA,9289.83,10158.72,479.98,10749.85,3.02,2.73,3.27,D:\PBS\FNG\lab03\results\GA_best.png
+Algorithm,Best,Average,Std,Worst,AvgTime(s),MinTime(s),MaxTime(s)
+SA,12526.12,13109.77,551.92,14138.12,0.04,0.04,0.04
+PSO,22592.69,23320.75,372.47,23837.16,0.81,0.80,0.83
+GA,9281.87,10389.67,655.83,11873.45,2.46,2.44,2.49

@@ -1,7 +1,6 @@
 import math
 import random
 
-# Wczytanie danych z pliku berlin52.tsp
 def load_cities(file_path):
     cities = []
     with open(file_path, 'r') as file:
@@ -18,7 +17,6 @@ def load_cities(file_path):
                 cities.append((float(parts[1]), float(parts[2])))
     return cities
 
-# Funkcja obliczająca długość trasy
 def calculate_distance(cities, path):
     distance = 0
     for i in range(len(path)):
@@ -27,11 +25,9 @@ def calculate_distance(cities, path):
         distance += math.sqrt((city1[0] - city2[0])**2 + (city1[1] - city2[1])**2)
     return distance
 
-# Algorytm PSO dla TSP
 def pso_tsp(cities, num_particles, max_iter, inertia, cognitive, social):
     num_cities = len(cities)
 
-    # Inicjalizacja cząstek
     particles = [random.sample(range(num_cities), num_cities) for _ in range(num_particles)]
     velocities = [random.uniform(-1, 1) for _ in range(num_particles)]
     personal_best = [p[:] for p in particles]
@@ -42,8 +38,6 @@ def pso_tsp(cities, num_particles, max_iter, inertia, cognitive, social):
 
     for _ in range(max_iter):
         for i in range(num_particles):
-            # Prosty operator ruchu oparty na swapach (adaptacja PSO do permutacji)
-            # losowo wykonujemy kilka swapów zależnych od parametrów
             swaps = 1
             if random.random() < 0.1:
                 swaps = 2
@@ -51,28 +45,20 @@ def pso_tsp(cities, num_particles, max_iter, inertia, cognitive, social):
                 idx1, idx2 = random.sample(range(num_cities), 2)
                 particles[i][idx1], particles[i][idx2] = particles[i][idx2], particles[i][idx1]
 
-            # Obliczanie nowej odległości
             current_distance = calculate_distance(cities, particles[i])
 
-            # Aktualizacja najlepszego osobistego rozwiązania
             if current_distance < personal_best_distances[i]:
                 personal_best[i] = particles[i][:]
                 personal_best_distances[i] = current_distance
 
-            # Aktualizacja najlepszego globalnego rozwiązania
             if current_distance < global_best_distance:
                 global_best = particles[i][:]
                 global_best_distance = current_distance
 
     return global_best, global_best_distance
 
-# Wizualizacja trasy
 def plot_path(cities, path):
-    try:
-        import matplotlib.pyplot as plt
-    except ImportError:
-        print("Brak pakietu 'matplotlib'. Aby zobaczyć wykres zainstaluj zależności: pip install -r requirements.txt")
-        return
+    import matplotlib.pyplot as plt
     x = [cities[i][0] for i in path] + [cities[path[0]][0]]
     y = [cities[i][1] for i in path] + [cities[path[0]][1]]
     plt.plot(x, y, marker='o')

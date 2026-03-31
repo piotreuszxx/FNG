@@ -6,7 +6,6 @@ import statistics
 import os
 import csv
 
-# Funkcja do uruchamiania eksperymentów
 def run_experiment(runs_per_alg=10):
     cities = sa_tsp.load_cities("berlin52.tsp")
 
@@ -18,7 +17,6 @@ def run_experiment(runs_per_alg=10):
 
     results = {}
 
-    # prepare results dir
     results_dir = os.path.join(os.path.dirname(__file__), 'results')
     os.makedirs(results_dir, exist_ok=True)
 
@@ -31,7 +29,6 @@ def run_experiment(runs_per_alg=10):
         for i in range(runs_per_alg):
             start_time = time.time()
 
-            # Wywołanie algorytmu z parametrami
             best_path, best_distance = algorithm(cities, **params)
 
             end_time = time.time()
@@ -49,7 +46,6 @@ def run_experiment(runs_per_alg=10):
         worst_distance = max(distances)
         best_path = best_paths[distances.index(best_distance)]
 
-        # zapisz wykres najlepszej trasy do pliku
         img_path = os.path.join(results_dir, f"{name}_best.png")
         save_plot(cities, best_path, img_path)
 
@@ -65,41 +61,25 @@ def run_experiment(runs_per_alg=10):
             "image": img_path
         }
 
-    # zapisz podsumowanie do CSV
     csv_path = os.path.join(results_dir, 'summary.csv')
     with open(csv_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Algorithm','Best','Average','Std','Worst','AvgTime(s)','MinTime(s)','MaxTime(s)','Image'])
+        writer.writerow(['Algorithm','Best','Average','Std','Worst','AvgTime(s)','MinTime(s)','MaxTime(s)'])
         for name, data in results.items():
-            writer.writerow([name, f"{data['best_distance']:.2f}", f"{data['average_distance']:.2f}", f"{data['std_distance']:.2f}", f"{data['worst_distance']:.2f}", f"{data['average_time']:.2f}", f"{data['min_time']:.2f}", f"{data['max_time']:.2f}", data['image']])
+            writer.writerow([name, f"{data['best_distance']:.2f}", f"{data['average_distance']:.2f}", f"{data['std_distance']:.2f}", f"{data['worst_distance']:.2f}", f"{data['average_time']:.2f}", f"{data['min_time']:.2f}", f"{data['max_time']:.2f}"])
 
     print(f"Wyniki zapisane w: {results_dir}")
     return results
 
 
-# Funkcja do zapisywania wykresu (obsługuje brak matplotlib)
 def save_plot(cities, path, filename):
-    try:
-        import matplotlib.pyplot as plt
-    except ImportError:
-        print("Brak pakietu 'matplotlib'. Aby zapisać wykresy zainstaluj zależności: pip install -r requirements.txt")
-        return
-    # Oblicz długość trasy (użycie funkcji z modułu sa_tsp)
-    try:
-        total_dist = sa_tsp.calculate_distance(cities, path)
-    except Exception:
-        # fallback: oblicz samodzielnie
-        total_dist = 0.0
-        for i in range(len(path)):
-            c1 = cities[path[i]]
-            c2 = cities[path[(i+1) % len(path)]]
-            total_dist += ((c1[0]-c2[0])**2 + (c1[1]-c2[1])**2)**0.5
+    import matplotlib.pyplot as plt
+    total_dist = sa_tsp.calculate_distance(cities, path)
 
     x = [cities[i][0] for i in path] + [cities[path[0]][0]]
     y = [cities[i][1] for i in path] + [cities[path[0]][1]]
     plt.figure(figsize=(8,6))
     plt.plot(x, y, marker='o')
-    # Dodaj opis z długością trasy w lewym górnym rogu
     plt.title('Najlepsza trasa')
     plt.xlabel('X')
     plt.ylabel('Y')
@@ -111,7 +91,6 @@ def save_plot(cities, path, filename):
     plt.close()
 
 
-# Funkcja do wizualizacji wyników
 def visualize_results(results, cities):
     for name, data in results.items():
         print(f"\nAlgorytm: {name}")

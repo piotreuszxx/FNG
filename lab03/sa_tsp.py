@@ -1,7 +1,6 @@
 import math
 import random
 
-# Wczytanie danych z pliku berlin52.tsp
 def load_cities(file_path):
     cities = []
     with open(file_path, 'r') as file:
@@ -18,7 +17,6 @@ def load_cities(file_path):
                 cities.append((float(parts[1]), float(parts[2])))
     return cities
 
-# Funkcja obliczająca długość trasy
 def calculate_distance(cities, path):
     distance = 0
     for i in range(len(path)):
@@ -27,14 +25,12 @@ def calculate_distance(cities, path):
         distance += math.sqrt((city1[0] - city2[0])**2 + (city1[1] - city2[1])**2)
     return distance
 
-# Funkcja generująca sąsiada (swap dwóch miast)
 def generate_neighbor(path):
     new_path = path[:]
     i, j = random.sample(range(len(path)), 2)
     new_path[i], new_path[j] = new_path[j], new_path[i]
     return new_path
 
-# Algorytm wyżarzania symulowanego
 def simulated_annealing(cities, initial_temp, cooling_rate, min_temp):
     current_path = list(range(len(cities)))
     random.shuffle(current_path)
@@ -61,13 +57,8 @@ def simulated_annealing(cities, initial_temp, cooling_rate, min_temp):
 
     return best_path, best_distance
 
-# Wizualizacja trasy
 def plot_path(cities, path):
-    try:
-        import matplotlib.pyplot as plt
-    except ImportError:
-        print("Brak pakietu 'matplotlib'. Aby zobaczyć wykres zainstaluj zależności: pip install -r requirements.txt")
-        return
+    import matplotlib.pyplot as plt
     x = [cities[i][0] for i in path] + [cities[path[0]][0]]
     y = [cities[i][1] for i in path] + [cities[path[0]][1]]
     plt.plot(x, y, marker='o')

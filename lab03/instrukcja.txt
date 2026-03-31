@@ -121,8 +121,8 @@ def plot_route(route, coords, title="Najlepsza trasa"):
     plt.grid(True, alpha=0.3)
     plt.show()
 8. Pytania do analizy i wnioski
- Który algorytm uzyskał najlepszą trasę dla berlin52?
- Który algorytm był najbardziej stabilny między uruchomieniami?
- Jak parametry SA (T0, α, liczba iteracji) wpływają na wynik?
- Jakie trudności pojawiają się przy adaptacji PSO do problemu permutacyjnego?
- Który algorytm wybrał(a)byś do większych instancji TSP i dlaczego?
+1. Który algorytm uzyskał najlepszą trasę dla berlin52?
+2. Który algorytm był najbardziej stabilny między uruchomieniami?
+3. Jak parametry SA (T0, α, liczba iteracji) wpływają na wynik?
+4. Jakie trudności pojawiają się przy adaptacji PSO do problemu permutacyjnego?
+5. Który algorytm wybrał(a)byś do większych instancji TSP i dlaczego?
