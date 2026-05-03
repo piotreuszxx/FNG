@@ -1,0 +1,57 @@
+FUNCTION_BLOCK investment
+
+VAR_INPUT
+    expected_return : REAL;
+    risk : REAL;
+    liquidity : REAL;
+END_VAR
+
+VAR_OUTPUT
+    attractiveness : REAL;
+END_VAR
+
+FUZZIFY expected_return
+    TERM low := (0,1) (3,1) (7,0);
+    TERM medium := (5,0) (10,1) (15,0);
+    TERM high := (12,0) (20,1) (30,1);
+END_FUZZIFY
+
+FUZZIFY risk
+    TERM low := (0,1) (1,1) (3,0);
+    TERM medium := (2,0) (5,1) (7,0);
+    TERM high := (6,0) (10,1) (10,1);
+END_FUZZIFY
+
+FUZZIFY liquidity
+    TERM low := (0,1) (2,1) (4,0);
+    TERM medium := (3,0) (5,1) (7,0);
+    TERM high := (6,0) (8,1) (10,1);
+END_FUZZIFY
+
+DEFUZZIFY attractiveness
+    TERM low := (0,1) (25,1) (50,0);
+    TERM medium := (25,0) (50,1) (75,0);
+    TERM high := (50,0) (75,1) (100,1);
+    METHOD : COG;
+    DEFAULT := 0;
+END_DEFUZZIFY
+
+RULEBLOCK Rules
+    AND : MIN;
+    ACT : MIN;
+    ACCU : MAX;
+
+    RULE 1 : IF expected_return IS low AND risk IS high THEN attractiveness IS low;
+    RULE 2 : IF expected_return IS low AND liquidity IS low THEN attractiveness IS low;
+    RULE 3 : IF expected_return IS medium AND risk IS medium AND liquidity IS medium THEN attractiveness IS medium;
+    RULE 4 : IF expected_return IS high AND risk IS low AND liquidity IS high THEN attractiveness IS high;
+    RULE 5 : IF expected_return IS high AND risk IS medium THEN attractiveness IS medium;
+    RULE 6 : IF expected_return IS medium AND risk IS low THEN attractiveness IS high;
+    RULE 7 : IF expected_return IS high AND liquidity IS low THEN attractiveness IS medium;
+    RULE 8 : IF risk IS high AND liquidity IS low THEN attractiveness IS low;
+    RULE 9 : IF expected_return IS low AND risk IS low AND liquidity IS high THEN attractiveness IS medium;
+    RULE 10 : IF expected_return IS medium AND liquidity IS high THEN attractiveness IS high;
+    RULE 11 : IF expected_return IS high AND risk IS high THEN attractiveness IS medium;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

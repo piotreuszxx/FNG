@@ -1,0 +1,326 @@
+
+1 Cel zadania
+Celem zadania jest zaprojektowanie i implementacja systemu wnioskowania rozmytego dla
+wybranego problemu ekonomicznego z wykorzystaniem biblioteki jFuzzyLogic. Student
+powinien opracować model decyzyjny oparty na logice rozmytej oraz przeprowadzić jego
+analizę.
+2 Treść zadania
+Należy zaprojektować system wspomagania decyzji dla jednego z poniższych problemów
+ekonomicznych:
+• Ocena ryzyka kredytowego klienta,
+• Ocena atrakcyjności inwestycji,
+• Ocena kondycji ekonomicznej przedsiębiorstwa,
+• Decyzja dotycząca zmiany ceny produktu.
+Dopuszcza się zaproponowanie własnego problemu po uzgodnieniu z prowadzącym.
+2.1 Ocena ryzyka kredytowego klienta
+Wejścia przykładowe:
+1. dochód miesięczny,
+2. poziom zadłużenia,
+3. historia spłat.
+Wyjście:
+1. ryzyko kredytowe.
+2.2 Ocena atrakcyjności inwestycji
+Wejścia przykładowe:
+1. oczekiwana stopa zwrotu,
+2. poziom ryzyka,
+3. płynność inwestycji.
+Wyjście:
+1. atrakcyjność inwestycji.
+2
+2.3 Ocena kondycji ekonomicznej przedsiębiorstwa
+Wejścia przykładowe:
+1. rentowność,
+2. zadłużenie,
+3. płynność finansowa.
+Wyjście:
+1. kondycja ekonomiczna firmy.
+2.4 Decyzja dotycząca zmiany ceny produktu
+Wejścia przykładowe:
+1. poziom popytu,
+2. poziom kosztów,
+3. intensywność konkurencji.
+Wyjście:
+1. rekomendacja cenowa.
+3 Zakres prac
+3.1 Opis problemu
+Należy przedstawić analizowany problem oraz uzasadnić wybór zmiennych wejściowych i
+wyjściowych.
+3.2 Definicja zmiennych lingwistycznych
+Zmienne lingwistyczne stanowią podstawowy element systemów rozmytych i umożliwiają
+opis zjawisk w sposób zbliżony do języka naturalnego. W odróżnieniu od klasycznych
+zmiennych numerycznych, przyjmują one wartości w postaci terminów lingwistycznych,
+takich jak niski, średni czy wysoki.
+Formalnie zmienna lingwistyczna definiowana jest jako piątka:
+L = (X, T (X), U, G, M ) (1)
+gdzie:
+• X — nazwa zmiennej (np. dochód, ryzyko),
+• T (X) — zbiór wartości lingwistycznych (np. niski, średni, wysoki),
+• U — uniwersum rozważań (dziedzina wartości liczbowych),
+3
+• G — reguły generowania nazw wartości lingwistycznych,
+• M — odwzorowanie przypisujące wartości lingwistycznym odpowiednie zbiory roz-
+myte.
+Każda wartość lingwistyczna reprezentowana jest przez zbiór rozmyty określony za
+pomocą funkcji przynależności µ(x), która przypisuje każdej wartości z dziedziny liczbowej
+stopień przynależności do danego pojęcia lingwistycznego.
+3.2.1 Przykład zmiennej lingwistycznej
+Rozważmy zmienną lingwistyczną dochód. Jej wartości lingwistyczne mogą być zdefinio-
+wane jako:
+1. niski,
+2. średni,
+3. wysoki.
+Analogicznie, dla zmiennej ryzyko kredytowe można wyróżnić:
+1. małe,
+2. umiarkowane,
+3. duże.
+Dla każdej z powyższych wartości definiuje się funkcje przynależności, najczęściej w
+postaci funkcji trójkątnych lub trapezowych.
+3.2.2 Znaczenie zmiennych lingwistycznych
+Zastosowanie zmiennych lingwistycznych pozwala na:
+• modelowanie nieprecyzyjnych i subiektywnych pojęć,
+• wykorzystanie wiedzy eksperckiej w postaci reguł językowych,
+• zwiększenie interpretowalności modelu,
+• uproszczenie opisu złożonych zjawisk ekonomicznych.
+Zmienne lingwistyczne odgrywają kluczową rolę w budowie systemów rozmytych, ponie-
+waż umożliwiają przejście od danych liczbowych do wnioskowania opartego na regułach,
+które są zrozumiałe dla człowieka.
+Dla każdej zmiennej należy określić:
+• zakres wartości,
+• zbiory rozmyte,
+4
+• funkcje przynależności.
+Przykład dla zmiennej „dochód”:
+1. niski,
+2. średni,
+3. wysoki.
+Przykład dla zmiennej „ryzyko kredytowe”:
+1. małe,
+2. umiarkowane,
+3. duże.
+3.3 Baza reguł
+Należy zdefiniować co najmniej 8–12 reguł rozmytych.
+Baza reguł stanowi kluczowy element systemu wnioskowania rozmytego, gdyż określa
+zależności pomiędzy zmiennymi wejściowymi a zmienną wyjściową. Reguły przyjmują
+zazwyczaj postać implikacji lingwistycznych typu:
+JEŚLI (warunki) TO (wniosek)
+lub w zapisie formalnym:
+IF x1 is A1 AND x2 is A2 THEN y is B
+gdzie:
+• x1, x2 — zmienne wejściowe,
+• A1, A2 — zbiory rozmyte dla wejść,
+• y — zmienna wyjściowa,
+• B — zbiór rozmyty dla wyjścia.
+Baza reguł jest najczęściej tworzona na podstawie wiedzy eksperckiej lub analizy da-
+nych i odzwierciedla sposób podejmowania decyzji w rozważanym problemie.
+3.3.1 Przykład reguł
+Dla problemu oceny ryzyka kredytowego przykładowe reguły mogą mieć postać:
+1. JEŚLI dochód jest niski ORAZ zadłużenie jest wysokie, TO ryzyko jest duże,
+2. JEŚLI dochód jest wysoki ORAZ historia spłat jest dobra, TO ryzyko jest małe,
+3. JEŚLI dochód jest średni ORAZ zadłużenie jest średnie, TO ryzyko jest umiarko-
+wane.
+5
+3.3.2 Czynniki wpływające na jakość bazy reguł
+Jakość bazy reguł ma bezpośredni wpływ na działanie całego systemu rozmytego. Do
+najważniejszych czynników należą:
+1. Spójność reguł — brak sprzecznych reguł prowadzących do różnych wniosków dla
+tych samych warunków,
+2. Kompletność — pokrycie całej przestrzeni wejść, tak aby system potrafił reagować
+na wszystkie możliwe sytuacje,
+3. Zgodność z wiedzą ekspercką — reguły powinny odzwierciedlać rzeczywiste
+zależności ekonomiczne,
+4. Liczba reguł — zbyt mała liczba reguł prowadzi do uproszczeń, natomiast zbyt
+duża zwiększa złożoność i utrudnia interpretację,
+5. Czytelność i interpretowalność — reguły powinny być zrozumiałe i łatwe do
+interpretacji przez użytkownika,
+6. Unikanie redundancji — eliminacja powtarzających się lub nieistotnych reguł,
+7. Jakość funkcji przynależności — właściwe dopasowanie zbiorów rozmytych wpływa
+na aktywację reguł,
+8. Dobór operatorów logicznych — wybór operatorów AND, OR oraz metod agre-
+gacji wpływa na wynik wnioskowania,
+9. Możliwość strojenia — baza reguł powinna umożliwiać modyfikację i optymali-
+zację (np. przy użyciu algorytmów genetycznych),
+10. Stabilność wyników — niewielkie zmiany danych wejściowych nie powinny po-
+wodować dużych zmian wyników.
+Dobrze zaprojektowana baza reguł zapewnia wysoką jakość wnioskowania, stabilność
+działania systemu oraz jego interpretowalność, co jest szczególnie istotne w zastosowaniach
+ekonomicznych.
+3.4 Analiza tabeli reguł
+Tabela bazy reguł stanowi uporządkowaną reprezentację wiedzy eksperckiej w systemie
+rozmytym. Każdy wiersz tabeli odpowiada jednej regule typu IF–THEN, określającej
+zależność pomiędzy kombinacją wartości zmiennych wejściowych a wartością zmiennej
+wyjściowej.
+W rozważanym przykładzie wykorzystano trzy zmienne wejściowe:
+• dochód,
+• zadłużenie,
+• historia spłat,
+z których każda przyjmuje trzy wartości lingwistyczne. Oznacza to, że liczba wszystkich
+możliwych kombinacji wynosi:
+3 · 3 · 3 = 27 (2)
+6
+3.4.1 Model kompletny
+Model kompletny (pełny) zakłada uwzględnienie wszystkich możliwych kombinacji war-
+tości zmiennych wejściowych. W tym przypadku baza reguł zawiera 27 reguł, co zapewnia
+pełne pokrycie przestrzeni wejść.
+Zalety modelu kompletnego:
+• pełna reprezentacja wszystkich możliwych sytuacji decyzyjnych,
+• brak luk w bazie reguł,
+• większa dokładność odwzorowania zależności.
+Wady modelu kompletnego:
+• duża liczba reguł,
+• zwiększona złożoność obliczeniowa,
+• trudniejsza interpretacja i utrzymanie modelu,
+• możliwość redundancji reguł.
+Model kompletny jest szczególnie przydatny w systemach, w których wymagana jest
+wysoka dokładność oraz pełna kontrola nad zachowaniem systemu.
+3.4.2 Model uproszczony
+Model uproszczony polega na ograniczeniu liczby reguł poprzez wybór najistotniejszych
+zależności pomiędzy zmiennymi. W praktyce oznacza to wykorzystanie tylko części moż-
+liwych kombinacji, np. 8–12 reguł.
+Zalety modelu uproszczonego:
+• mniejsza liczba reguł,
+• większa przejrzystość i interpretować,
+• łatwiejsza implementacja i modyfikacja,
+• krótszy czas obliczeń.
+Wady modelu uproszczonego:
+• niepełne pokrycie przestrzeni wejść,
+• możliwość pominięcia istotnych zależności,
+• potencjalnie mniejsza dokładność wyników.
+Model uproszczony jest często stosowany w praktyce, gdy zależy nam na prostocie
+modelu oraz łatwej interpretacji wyników.
+7
+3.4.3 Porównanie podejść
+Wybór pomiędzy modelem kompletnym a uproszczonym zależy od charakteru problemu
+oraz dostępnej wiedzy eksperckiej. Model kompletny zapewnia pełne odwzorowanie prze-
+strzeni decyzyjnej, natomiast model uproszczony pozwala na budowę bardziej przejrzy-
+stego i efektywnego systemu.
+W zastosowaniach ekonomicznych często preferuje się model uproszczony, ponieważ
+umożliwia on łatwiejszą interpretację wyników oraz odzwierciedla sposób podejmowania
+decyzji przez ekspertów.
+3.4.4 Opis tabeli bazy reguł
+Tabela 1 przedstawia przykładową bazę reguł rozmytych wykorzystywaną do oceny ryzyka
+kredytowego. Każdy wiersz tabeli odpowiada jednej regule decyzyjnej typu IF–THEN,
+która określa zależność pomiędzy wartościami zmiennych wejściowych a poziomem ryzyka
+kredytowego.
+W modelu uwzględniono trzy zmienne wejściowe:
+• dochód klienta,
+• poziom zadłużenia,
+• historia spłat zobowiązań,
+oraz jedną zmienną wyjściową:
+• ryzyko kredytowe.
+Analizując tabelę można zauważyć, że najwyższy poziom ryzyka (duże) występuje w sy-
+tuacjach, gdy klient charakteryzuje się niskim dochodem oraz wysokim zadłużeniem lub
+negatywną historią spłat (reguły 1–4). Oznacza to, że kombinacja niskiej zdolności do-
+chodowej i wysokiego obciążenia finansowego jest kluczowym czynnikiem zwiększającym
+ryzyko kredytowe.
+Poziom umiarkowany (umiarkowane) pojawia się w przypadkach pośrednich, np. gdy
+dochód i zadłużenie są na średnim poziomie lub gdy występują mieszane sygnały (reguły
+5, 7 oraz 10). W takich sytuacjach decyzja kredytowa wymaga dodatkowej analizy.
+Najniższy poziom ryzyka (małe) przypisany jest klientom o korzystnej sytuacji finan-
+sowej, czyli przy średnim lub wysokim dochodzie, niskim zadłużeniu oraz dobrej historii
+spłat (reguły 6, 8 i 9). Wskazuje to, że pozytywna historia kredytowa oraz niskie zobo-
+wiązania mają istotny wpływ na ocenę wiarygodności klienta.
+Przedstawiona tabela stanowi przykład uproszczonej bazy reguł, która nie obejmuje
+wszystkich możliwych kombinacji zmiennych wejściowych, lecz koncentruje się na najważ-
+niejszych przypadkach decyzyjnych. Takie podejście pozwala na zachowanie przejrzysto-
+ści modelu oraz jego łatwiejszą interpretację, co jest szczególnie istotne w zastosowaniach
+ekonomicznych.
+8
+Tabela 1: Przykładowa baza reguł dla oceny ryzyka kredytowego
+Nr reguły Dochód Zadłużenie Historia
+spłat
+Ryzyko kre-
+dytowe
+1 niski wysokie zła duże
+2 niski wysokie średnia duże
+3 niski średnie zła duże
+4 średni wysokie zła duże
+5 średni średnie średnia umiarkowane
+6 średni niskie dobra małe
+7 wysoki wysokie średnia umiarkowane
+8 wysoki niskie dobra małe
+9 wysoki średnie dobra małe
+10 niski niskie dobra umiarkowane
+3.5 Metoda wyostrzania
+W celu uzyskania ostrej wartości wyjściowej na podstawie wyników wnioskowania rozmy-
+tego zastosowano metodę wyostrzania (defuzyfikacji).
+W prezentowanym modelu wykorzystano metodę środka ciężkości (Center of Gravity,
+COG), która jest jedną z najczęściej stosowanych metod defuzyfikacji. Polega ona na
+wyznaczeniu środka ciężkości obszaru pod funkcją przynależności zmiennej wyjściowej.
+Wartość wyostrzona y∗ wyznaczana jest według wzoru:
+y∗ =
+∫ y · µ(y) dy
+∫ µ(y) dy
+gdzie:
+• y — wartość zmiennej wyjściowej,
+• µ(y) — funkcja przynależności wynikowa.
+Metoda COG pozwala na uzyskanie stabilnych i intuicyjnych wyników, co jest szcze-
+gólnie istotne w problemach ekonomicznych.
+W implementacji w bibliotece jFuzzyLogic metoda ta jest określana poprzez zapis:
+METHOD : COG;
+Alternatywnie można zastosować inne metody wyostrzania, takie jak:
+1. metoda maksimum (Maximum),
+2. metoda średniej maksimum (Mean of Maximum),
+3. metoda pierwszego maksimum (First of Maximum).
+Wybór metody wyostrzania wpływa na końcową wartość decyzji i powinien być do-
+stosowany do charakteru analizowanego problemu.
+9
+3.6 Implementacja
+Projekt powinien zawierać:
+• plik w formacie .fcl,
+• kod w języku Java wykorzystujący jFuzzyLogic,
+• zestaw testów.
+3.7 Analiza wyników
+Należy:
+• przeprowadzić symulacje dla co najmniej 5 przypadków,
+• zinterpretować wyniki,
+• ocenić model.
+4 Wymagania techniczne
+Projekt musi zawierać:
+• opis problemu,
+• definicję zmiennych i funkcji przynależności,
+• bazę reguł,
+• plik FCL,
+• kod źródłowy,
+• analizę wyników.
+5 Przykładowy fragment pliku FCL
+FUNCTION_BLOCK credit_risk
+VAR_INPUT
+income : REAL;
+debt : REAL;
+history : REAL;
+END_VAR
+VAR_OUTPUT
+risk : REAL;
+END_VAR
+FUZZIFY income
+TERM low := (0,1) (2000,1) (4000,0);
+10
+TERM medium := (2000,0) (5000,1) (8000,0);
+TERM high := (6000,0) (10000,1) (15000,1);
+END_FUZZIFY
+DEFUZZIFY risk
+TERM low := (0,1) (25,1) (50,0);
+TERM medium := (25,0) (50,1) (75,0);
+TERM high := (50,0) (75,1) (100,1);
+METHOD : COG;
+DEFAULT := 0;
+END_DEFUZZIFY
+RULEBLOCK Rules
+RULE 1 : IF income IS low AND debt IS high THEN risk IS high;
+END_RULEBLOCK
+END_FUNCTION_BLOCK
+6 Polecenie
+Zaprojektuj i zaimplementuj system rozmyty dla wybranego problemu ekonomicznego
+z wykorzystaniem biblioteki jFuzzyLogic. System powinien zawierać co najmniej trzy
+zmienne wejściowe, jedną zmienną wyjściową oraz minimum osiem reguł rozmytych. Na-
+leży przeprowadzić analizę wyników i przygotować raport.
+Literatura
+[0] Pablo Cingolani i Jesús Alcalá-Fdez. jFuzzyLogic: a Java library to design fuzzy logic
+controllers according to the FCL standard. http : / / jfuzzylogic . sourceforge .
+net/. Dostęp: 2026-03-30. 2013.
+[0] Jan Kołodziejczyk. Logika rozmyta – systemy wnioskowania rozmytego. Materiały
+wykładowe. Materiały dydaktyczne. 2010.
+[0] Andrzej Łachwa. Rozmyty świat zbiorów, liczb, relacji, faktów i decyzji. Warszawa:
+Akademicka Oficyna Wydawnicza EXIT, 2001.
+[0] Różni autorzy. Wprowadzenie do logiki rozmytej i systemów wnioskowania. Materiały
+kursowe. Materiały dydaktyczne uczelni technicznych (AGH, PW). 2015.
