@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1777827122.07111 "p:/PBS/FNG/lab04/report.tex" "report.pdf" "report" 1777827123.52905 0
-  "p:/PBS/FNG/lab04/report.tex" 1777827121 11322 e4159797f3380a543a53b72be58c3b3d ""
+["pdflatex"] 1777976817.58528 "p:/PBS/FNG/lab04/report.tex" "report.pdf" "report" 1777976819.368 0
+  "p:/PBS/FNG/lab04/report.tex" 1777976037 11314 bf1c0c87d01887056b5dcc1f43586f2f ""
   "p:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1765174967 2375 baa924870cfb487815765f9094cf3728 ""
   "p:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1765174967 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "p:/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1765174967 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -69,13 +69,13 @@
   "p:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1765176733 5512713 09f0658b95e8d51e86ad7d69304ef3e5 ""
   "p:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1765177141 3346025 4f6668580385a23ffacb5442974a0441 ""
   "p:/texlive/2025/texmf.cnf" 1765176698 713 e69b156964470283e0530f5060668171 ""
-  "plots/attractiveness.png" 1777826098 63231 0013324bc50c77d45110e706b23d82a3 ""
-  "plots/expected_return.png" 1777826097 60789 cfee28857e32e40da8bad6ec4cd8aa1b ""
-  "plots/liquidity.png" 1777826097 57696 cd1d748d6635cb06ddd84ea64f2096c1 ""
-  "plots/risk.png" 1777826097 61037 2895fc1a4f35a42e47b84c3e6ead0e08 ""
-  "report.aux" 1777827123 2777 d0c0be6c020104b8e74c931da4b1cd6e "pdflatex"
-  "report.tex" 1777827121 11322 e4159797f3380a543a53b72be58c3b3d ""
-  "results_table.tex" 1777822230 826 03a2479d1988b3ae2f65631d34dd9270 ""
+  "plots/attractiveness.png" 1777976816 63231 0013324bc50c77d45110e706b23d82a3 ""
+  "plots/expected_return.png" 1777976816 60789 cfee28857e32e40da8bad6ec4cd8aa1b ""
+  "plots/liquidity.png" 1777976816 57696 cd1d748d6635cb06ddd84ea64f2096c1 ""
+  "plots/risk.png" 1777976816 60160 d194c1a71885b4d97a22febe8cc61d93 ""
+  "report.aux" 1777976819 2777 d0c0be6c020104b8e74c931da4b1cd6e "pdflatex"
+  "report.tex" 1777976037 11314 bf1c0c87d01887056b5dcc1f43586f2f ""
+  "results_table.tex" 1777976765 826 03a2479d1988b3ae2f65631d34dd9270 ""
   (generated)
   "report.aux"
   "report.log"
