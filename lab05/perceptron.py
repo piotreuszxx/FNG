@@ -137,17 +137,14 @@ def test_gate(name, X, y, activation_function):
 
     print("Accuracy:", p.evaluate(X, y))
 
-# AND
 test_gate("AND", X_and, y_and, step)
 test_gate("AND", X_and, y_and, sigmoid)
 test_gate("AND", X_and, y_and, relu)
 
-# OR
 test_gate("OR", X_or, y_or, step)
 test_gate("OR", X_or, y_or, sigmoid)
 test_gate("OR", X_or, y_or, relu)
 
-# XOR
 test_gate("XOR", X_xor, y_xor, step)
 test_gate("XOR", X_xor, y_xor, sigmoid)
 test_gate("XOR", X_xor, y_xor, relu)

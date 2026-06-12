@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1781224599.1995 "p:/PBS/FNG/lab05/sprawozdanie.tex" "sprawozdanie.pdf" "sprawozdanie" 1781224601.03405 0
-  "p:/PBS/FNG/lab05/sprawozdanie.tex" 1781224598 7258 41b42b47bd264d992edeb578af8ae471 ""
+["pdflatex"] 1781279418.65182 "p:/PBS/FNG/lab05/sprawozdanie.tex" "sprawozdanie.pdf" "sprawozdanie" 1781279420.17057 0
+  "p:/PBS/FNG/lab05/sprawozdanie.tex" 1781279417 8183 d16a8690562755b410e8a21f59117c06 ""
   "p:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1765173872 2971 def0b6c1f0b107b3b936def894055589 ""
   "p:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1765173872 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "p:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1765174398 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -101,9 +101,9 @@
   "p:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1765176733 5512713 09f0658b95e8d51e86ad7d69304ef3e5 ""
   "p:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1765177141 3346025 4f6668580385a23ffacb5442974a0441 ""
   "p:/texlive/2025/texmf.cnf" 1765176698 713 e69b156964470283e0530f5060668171 ""
-  "sprawozdanie.aux" 1781224600 1802 132482101023d6cf6d33db081f6c6ab5 "pdflatex"
-  "sprawozdanie.out" 1781224600 1023 634e889d97dd9d3780bcfab65a898c18 "pdflatex"
-  "sprawozdanie.tex" 1781224598 7258 41b42b47bd264d992edeb578af8ae471 ""
+  "sprawozdanie.aux" 1781279419 1802 abbf83ec1e4845bb5b8a3e274c3b93b3 "pdflatex"
+  "sprawozdanie.out" 1781279419 1023 634e889d97dd9d3780bcfab65a898c18 "pdflatex"
+  "sprawozdanie.tex" 1781279417 8183 d16a8690562755b410e8a21f59117c06 ""
   "xor.png" 1781223954 9875 b96cf7574923c27b6100da4838cf9e06 ""
   (generated)
   "sprawozdanie.aux"

@@ -79,6 +79,19 @@ Wejście & Oczekiwany & Predykcja - step & Predykcja - sigmoid & Predykcja - rel
 \end{tabular}
 \end{table}
 
+\textbf{Parametry modelu}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c}
+Funkcja aktywacji & Wagi & Bias\\
+\hline
+step & [0.2,\;0.1] & -0.2\\
+sigmoid & [0.4405,\;0.4258] & -1.0589\\
+relu & [0.4716,\;0.4458] & -0.1811\\
+\end{tabular}
+\end{table}
+
 \textbf{Accuracy:}
 \begin{itemize}
 \item step: 1.0
@@ -86,7 +99,9 @@ Wejście & Oczekiwany & Predykcja - step & Predykcja - sigmoid & Predykcja - rel
 \item relu: 1.0
 \end{itemize}
 
-Model przy użyciu funkcji aktywacji step oraz relu poprawnie rozwiązuje problem bramki AND. Spadek jakości dla funkcji sigmoid wynika z ograniczeń progu decyzyjnego po stronie klasyfikacji binarnej.
+Model przy użyciu funkcji aktywacji step oraz relu poprawnie rozwiązuje problem bramki AND. Można zauważyć, że dla funkcji sigmoid model nie osiągnął pełnej skuteczności.
+Najprawdopodobniej wynika to z zastosowanego sposobu uczenia perceptronu,
+który został zaprojektowany głównie dla funkcji progowej (step).
 
 % ==========================================================
 \subsection{Bramka OR}
@@ -102,6 +117,20 @@ Wejście & Oczekiwany & Predykcja - step & Predykcja - sigmoid & Predykcja - rel
 (1,1) & 1 & 1 & 1 & 1\\
 \end{tabular}
 \end{table}
+
+\textbf{Parametry modelu}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c}
+Funkcja aktywacji & Wagi & Bias\\
+\hline
+step & [0.1,\;0.1] & -0.1\\
+sigmoid & [0.9786,\;0.9888] & 0.4068\\
+relu & [0.4005,\;0.4258] & 0.3387\\
+\end{tabular}
+\end{table}
+\break
 
 \textbf{Accuracy:}
 \begin{itemize}
@@ -124,6 +153,19 @@ Wejście & Oczekiwany & Predykcja - step & Predykcja - sigmoid & Predykcja - rel
 (0,1) & 1 & 1 & 0 & 0\\
 (1,0) & 1 & 0 & 0 & 0\\
 (1,1) & 0 & 0 & 0 & 0\\
+\end{tabular}
+\end{table}
+
+\textbf{Parametry modelu}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|c|c}
+Funkcja aktywacji & Wagi & Bias\\
+\hline
+step & [-0.1,\;0.0] & 0.0\\
+sigmoid & [-0.0414,\;-0.0208] & -0.0032\\
+relu & [-0.0530,\;-0.0007] & 0.4792\\
 \end{tabular}
 \end{table}
 
